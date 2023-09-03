@@ -4,17 +4,23 @@ class Program
 {
     static void Main(string[] args)
     {
-        Solution(121);
+        Solution(-121);
     }
 
     static bool Solution(int x)
     {
-        int r = 0, c = x;
-        while (c > 0)
+        string inputArray = x.ToString();
+
+        int len = inputArray.Length;
+
+        for (int i = 0; i < len / 2; i++)
         {
-            r = r * 10 + c % 10;
-            c /= 10;
+            if(inputArray[i] != inputArray[^(i + 1)])
+            {
+                return false;
+            }
         }
-        return r == x;
+
+        return true;
     }
 }
